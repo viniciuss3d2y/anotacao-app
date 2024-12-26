@@ -1,0 +1,77 @@
+<LoginPage>:
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: 208/255, 247/255,253/255, 1
+
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        
+
+        GridLayout:
+            rows: 1
+            pos_hint: {"center_x": 0.5 , "top": 0.24}
+            size_hint: 0.7 , 0.2
+
+        # fazer login
+            LabelButton:
+                canvas.before:
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
+                text: "Fazer Login"
+                on_release: app.myfirebase.fazer_login(email_input.text, senha_input.text)
+        # criar conta
+            LabelButton:
+                canvas.before:
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
+                text: "Criar Conta"
+                on_release: app.myfirebase.criar_conta(email_input.text, senha_input.text)
+
+
+        TextInput:
+            id: email_input
+            pos_hint: {"center_x": 0.5 , "top": 0.65}
+            size_hint: 0.6 , 0.1
+            hint_text: "E-mail"
+            background_color: 255/180, 255/24, 255/76, 1
+            background_normal: ''
+            
+        TextInput:
+            id: senha_input
+            pos_hint: {"center_x": 0.5 , "top": 0.52}
+            size_hint: 0.6 , 0.1
+            hint_text: "senha"
+            background_color: 255/180, 255/24, 255/76, 1
+            cursor_color: 0, 0, 1, 1
+            foreground_color: 1, 0, 1, 1
+            background_normal: ''
+            password : True
+                           
+            #background_active:''
+
+        Label:
+            pos_hint: {"center_x": 0.5 , "top": 0.55}
+            size_hint: 0.1 , 0.5
+            id : mensagem_login
+            markup: True
+            bold: True
+            text: "[color=#000000]Faça seu Login[/color]"
+            background_color: 0.99, 0.98, 0.97, 1
+    
+
+
+        ImageButton:
+            id : olho_senha
+            pos_hint: {"right": 0.8  , "top": 0.48}
+            size_hint: 0.03 , 0.03
+            source: "icones/olho.png"
+            on_release: app.olho_senha()
+

@@ -1,0 +1,47 @@
+<TextoAnotacoesPage>:
+    FloatLayout:
+
+
+        Label:
+            pos_hint: {"center_x": 0.5 , "top": 1}
+            size_hint: 1 , 0.06
+            id : titulo_dotexto
+            text: ""
+            bold : True
+
+
+        ScrollView: 
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex("f7ecf4")
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            pos_hint: {"center_x": 0.5 , "top": 0.9}
+            size_hint: 0.6 , 0.9
+            GridLayout:
+               
+
+                cols : 1
+                id : texto_anotacoes
+                size_hint_y: 0.05
+                height: self.minimum_height
+               
+        GridLayout:
+            canvas.before:
+                Color:
+                    rgb: 168/255, 168/255, 168/255, 0.2
+                Rectangle:
+                    pos:self.pos
+                    size:self.size                   
+            pos_hint: {"right": 1, "top": 0.12 }
+            size_hint: 1, 0.12
+            rows: 1
+
+            FloatLayout:
+                ImageButton:
+                    pos_hint: {"right": 0.33, "top": 1}
+                    size_hint: 0.33, 1
+                    source: "icones/voltar.png"
+                    on_release: app.mudar_tela("listaanotacoespage")

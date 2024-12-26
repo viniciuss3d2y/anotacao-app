@@ -1,0 +1,38 @@
+<HomePage>:
+    
+    FloatLayout:
+        
+        Label:
+            id : label_id
+            bold: True
+            markup: True
+            pos_hint: {"center_x": 0.5, "top": 0.9}
+            size_hint: 1, 0.08
+            text: "[color=##00FF0A]Seu Id Único :[/color]"
+        
+        GridLayout:
+            canvas.before:
+                Color:
+                    rgb: 168/255, 168/255, 168/255, 0.2
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+                    
+            pos_hint: {"right": 1, "top": 0.12 }
+            size_hint: 1, 0.12
+            rows: 1
+            
+            ImageButton:             
+                source: "icones/icone_anotacao.png"
+                on_release: app.mudar_tela("anotacoespage")
+
+
+            ImageButton:
+                source: "icones/ver_anotacao.png"
+                on_release: app.carregar_titulos_usuario()
+            
+
+            ImageButton
+                source: "icones/icone_perfil.png"
+                on_release: app.carregar_fotos_perfil()
+

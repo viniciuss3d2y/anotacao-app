@@ -1,0 +1,50 @@
+<AnotacoesPage>:
+    FloatLayout:
+
+          
+       
+        FloatLayout:
+            canvas.before:
+                Color:
+                    rgb: 168/255, 168/255, 168/255, 0.2
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+                    
+            pos_hint: {"right": 1, "top": 0.12 }
+            size_hint: 1, 0.12
+
+            ImageButton:   
+                pos_hint: {"right": 0.33, "top": 1 }
+                size_hint: 0.33, 1   
+                source: "icones/voltar.png"
+                on_release: app.mudar_tela("homepage")
+
+    TextInput:
+        id : titulo_input
+        pos_hint: {"center_x": 0.5 , "top": 1 }
+        size_hint: 0.45 , 0.07
+        hint_text : "Titulo..." 
+        background_color : 0.9094117647, 0.81450980392, 0.88058823529, 0.9
+        background_normal: ''
+        cursor_color: 0, 0, 1, 1
+        foreground_color: 1, 0, 0.98, 1
+    
+    
+    TextInput:
+        id : anotacoes_input
+        pos_hint: {"center_x": 0.5 , "top": 0.92 }
+        size_hint: 0.5 , 0.77
+        hint_text: "Escreva aqui suas anotações..."
+        background_color : 0.8894117647, 0.79450980392, 0.87058823529, 1
+        background_normal: ""
+        cursor_color: 0, 0, 1, 1
+        foreground_color: 1, 0, 1, 1
+        
+            
+
+    ImageButton:
+        pos_hint: {"center_x": 0.8 , "top": 0.3 }
+        size_hint: 0.3 , 0.3
+        source: "icones/enviar.png"
+        on_release: app.salvar_anotacoes(titulo_input.text, anotacoes_input.text)

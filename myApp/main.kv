@@ -1,0 +1,53 @@
+#: include kv/homepage.kv
+#: include kv/anotacoespage.kv
+#: include kv/fotosperfilpage.kv
+#: include kv/loginpage.kv
+#: include kv/listaanotacoespage.kv
+#: include kv/textoanotacoespage.kv
+#: import utils kivy.utils 
+
+
+
+FloatLayout:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "icones/bg1.jpg"
+    
+    Image:
+        id : foto_perfil
+        pos_hint:{"right": 1, "top": 0.95}
+        size_hint: 1 , 0.1
+        source: "icones/fotos_perfil/foto0.png"
+
+
+
+
+
+            
+            
+    
+    ScreenManager:
+        pos_hint:{"right": 1, "top": 0.8}
+        size_hint: 1 , 0.8
+        id: screen_manager
+        LoginPage:
+            name : "loginpage"
+            id : loginpage
+        HomePage:
+            name: "homepage"
+            id: homepage
+        AnotacoesPage:
+            name: "anotacoespage"
+            id : anotacoespage
+        FotosPerfilPage:
+            name: "fotosperfilpage"
+            id : fotosperfilpage
+        ListaAnotacoesPage:
+            name: "listaanotacoespage"
+            id : listaanotacoespage
+        TextoAnotacoesPage:
+            name : "textoanotacoespage"
+            id : textoanotacoespage
+            

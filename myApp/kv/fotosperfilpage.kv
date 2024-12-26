@@ -1,0 +1,39 @@
+<FotosPerfilPage>:
+    FloatLayout:
+        GridLayout:
+            canvas.before:
+                Color:
+                    rgb: 168/255, 168/255, 168/255, 0.2
+                Rectangle:
+                    pos:self.pos
+                    size:self.size                   
+            pos_hint: {"right": 1, "top": 0.12 }
+            size_hint: 1, 0.12
+            rows: 1
+
+            FloatLayout:
+                ImageButton:
+                    pos_hint: {"right": 0.33, "top": 1}
+                    size_hint: 0.33, 1
+                    source: "icones/voltar.png"
+                    on_release: app.mudar_tela("homepage")
+                
+
+        ScrollView:
+            pos_hint: {"center_x": 0.5 , "top": 0.9}
+            size_hint: 0.77 , 0.63
+            GridLayout:
+                cols : 3
+                id : lista_fotos_perfil
+                spacing: 5 , 5
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: "90dp"
+                row_force_default: True
+
+
+        ImageButton:
+            pos_hint: {"right": 1, "top": 1}
+            size_hint: 0.2 , 0.2
+            source: "icones/logout.png"
+            on_release: app.myfirebase.logout()
